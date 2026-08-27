@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بداية جديدة ❤️</title>
+    <style>
+        body {
+            background-color: #0d1117;
+            color: #ffffff;
+            font-family: 'Cairo', sans-serif, Tahoma;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 600px;
+            width: 100%;
+        }
+        .password-section {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px 20px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255, 71, 87, 0.3);
+        }
+        .password-section h2 {
+            color: #ff6b81;
+            margin-bottom: 25px;
+            font-size: 24px;
+        }
+        .envelope {
+            background: linear-gradient(135deg, #ff4757, #ff6b81);
+            width: 240px;
+            height: 150px;
+            margin: 25px auto;
+            border-radius: 14px;
+            position: relative;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(255, 71, 87, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            transition: transform 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        .envelope:hover {
+            transform: scale(1.05);
+        }
+        .password-box {
+            display: none;
+            margin-top: 20px;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .password-box input {
+            padding: 12px 20px;
+            font-size: 18px;
+            border-radius: 12px;
+            border: 2px solid #ff4757;
+            background: #161b22;
+            color: white;
+            text-align: center;
+            outline: none;
+            width: 80%;
+            max-width: 250px;
+        }
+        .password-box button {
+            padding: 12px 25px;
+            font-size: 16px;
+            border-radius: 12px;
+            border: none;
+            background: #ff4757;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 15px;
+            box-shadow: 0 5px 15px rgba(255, 71, 87, 0.4);
+        }
+        #errorMsg {
+            color: #ff4757;
+            margin-top: 12px;
+            font-weight: bold;
+            font-size: 15px;
+        }
+        .content {
+            display: none;
+            margin-top: 10px;
+            animation: fadeIn 1s ease-in-out;
+        }
+        .countdown {
+            background: linear-gradient(135deg, rgba(255, 71, 87, 0.15), rgba(20, 25, 35, 0.9));
+            padding: 22px 20px;
+            border-radius: 16px;
+            margin: 20px 0;
+            border: 1px solid rgba(255, 71, 87, 0.4);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+        }
+        .countdown-title {
+            font-size: 16px;
+            color: #ff6b81;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .countdown-numbers {
+            font-size: 19px;
+            font-weight: bold;
+            color: #ffffff;
+            direction: ltr;
+            unicode-bidi: isolate;
+        }
+        .countdown-numbers span {
+            color: #ff4757;
+            padding: 0 3px;
+        }
+        .audio-box {
+            background: rgba(255, 255, 255, 0.04);
+            padding: 15px;
+            border-radius: 14px;
+            margin: 20px 0;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        audio {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .gallery-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 15px;
+            margin: 22px 0;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+        .gallery-item img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 12px;
+        }
+        .gallery-item p {
+            font-size: 17px;
+            line-height: 1.6;
+            color: #ffb8b8;
+            margin: 0;
+            padding: 0 10px;
+            font-weight: 500;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- الواجهة الأولى -->
+    <div class="container password-section" id="lockScreen">
+        <h2>دوسي يا ملووكتي على الظرف ❤️</h2>
+        
+        <!-- الظرف -->
+        <div class="envelope" onclick="showPasswordBox()">
+            بحبك يا ملوكه 💌
+        </div>
+
+        <!-- خانة الباسورد اللي بتظهر بعد الضغط على الظرف -->
+        <div class="password-box" id="passBox">
+            <input type="password" id="passInput" placeholder="اكتبي كلمة السر...">
+            <br>
+            <button onclick="checkPassword()">فتح الهدية ✨</button>
+            <div id="errorMsg"></div>
+        </div>
+    </div>
+
+    <!-- محتوى الموقع بعد الباسورد الصح -->
+    <div class="container content" id="myContent">
+        
+        <!-- العد التصاعدي الفخم -->
+        <div class="countdown">
+            <div class="countdown-title">⏳ ممرّ على البداية الجديدة (26/8/2026)</div>
+            <div class="countdown-numbers" id="countdownTimer">جاري التحميل...</div>
+        </div>
+
+        <!-- مشغل الأغنية تحت العد التصاعدي مباشرة -->
+        <div class="audio-box">
+            <audio id="myAudio" controls loop>
+                <source src="Aumbtgherm.m4a" type="audio/mp4">
+                متصفحك لا يدعم تشغيل الصوت
+            </audio>
+        </div>
+
+        <p style="font-size: 18px; line-height: 1.7; color: #ff8093; margin: 25px 0; font-weight: bold;">
+            كل ثانية بتعدي من تاريخ 26/8/2026 وهي بداية جديدة لحاجة حلوة بينا تدوم العمر كله يا أطيب قلب.
+        </p>
+
+        <!-- الـ 4 صور بالكلام الجديد -->
+        <div class="gallery">
+            
+            <div class="gallery-item">
+                <img src="IMG-20260827-WA0009.jpg" alt="ذكرى">
+                <p>تاهت عيوني في بحور عيونها، واختار قلبي أن يغوص فيغرق.</p>
+            </div>
+
+            <div class="gallery-item">
+                <img src="Screenshot_20260827-013352_Photos.jpg" alt="ذكرى">
+                <p>مهما حصل هيفضل ليكي مكانه خاصة في قلبي ومهما كتبت كلام مش هيكفي أو يوصف قد إيه أنا بحبك 🥹🫵🏻🌎🏡❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️</p>
+            </div>
+
+            <div class="gallery-item">
+                <img src="images jdhdgsgsh.jpg" alt="ذكرى">
+                <p>وجودك أجمل صدفة في حياتي، وقلبي اختارك ولن يختار غيرك.❤❤</p>
+            </div>
+
+            <div class="gallery-item">
+                <img src="images hsdkd.jpg" alt="ذكرى">
+                <p>أنت النبض الذي لا يتوقف، ومعك فقط أشعر أنني على قيد الحياة.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        function showPasswordBox() {
+            document.querySelector('.envelope').style.display = 'none';
+            document.getElementById('passBox').style.display = 'block';
+        }
+
+        function checkPassword() {
+            var enteredPass = document.getElementById('passInput').value;
+            var errorMsg = document.getElementById('errorMsg');
+
+            if (enteredPass === "Loka") {
+                document.getElementById('lockScreen').style.display = 'none';
+                document.getElementById('myContent').style.display = 'block';
+                var audio = document.getElementById('myAudio');
+                audio.play().catch(e => console.log("Audio play blocked"));
+            } else {
+                errorMsg.innerHTML = "كلمة السر غلط يا حبيبت قلبي ❤️";
+            }
+        }
+
+        // العد التصاعدي من 26 أغسطس 2026
+        const startDate = new Date("2026-08-26T00:00:00").getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const difference = now - startDate;
+
+            if (difference < 0) {
+                document.getElementById("countdownTimer").innerHTML = "التاريخ يبدأ قريباً!";
+                return;
+            }
+
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+            document.getElementById("countdownTimer").innerHTML = 
+                `<span>${days}</span> يوم • <span>${hours}</span> ساعة • <span>${minutes}</span> دقيقة • <span>${seconds}</span> ثانية ❤️`;
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+
+</body>
+</html>
