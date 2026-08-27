@@ -166,12 +166,10 @@
     <div class="container password-section" id="lockScreen">
         <h2>دوسي يا ملووكتي على الظرف ❤️</h2>
         
-        <!-- الظرف -->
         <div class="envelope" onclick="showPasswordBox()">
             بحبك يا ملوكه 💌
         </div>
 
-        <!-- خانة الباسورد اللي بتظهر بعد الضغط على الظرف -->
         <div class="password-box" id="passBox">
             <input type="password" id="passInput" placeholder="اكتبي كلمة السر...">
             <br>
@@ -189,7 +187,7 @@
             <div class="countdown-numbers" id="countdownTimer">جاري التحميل...</div>
         </div>
 
-        <!-- مشغل الأغنية تحت العد التصاعدي مباشرة -->
+        <!-- مشغل الأغنية -->
         <div class="audio-box">
             <audio id="myAudio" controls loop>
                 <source src="Aumbtgherm.m4a" type="audio/mp4">
@@ -197,11 +195,12 @@
             </audio>
         </div>
 
+        <!-- الكلام الجديد -->
         <p style="font-size: 18px; line-height: 1.7; color: #ff8093; margin: 25px 0; font-weight: bold;">
-            كل ثانية بتعدي من تاريخ 26/8/2026 وهي بداية جديدة لحاجة حلوة بينا تدوم العمر كله يا أطيب قلب.
+            ملوكتي انا هحارب الدنيا كلها علشانك وعلشان تبقي معايا بس عاوزك انتي كمان تبادليني نفس المشاعر علشان انا لسه قافل قلبي عليكي
         </p>
 
-        <!-- الـ 4 صور بالكلام الجديد -->
+        <!-- الـ 4 صور بالكلام -->
         <div class="gallery">
             
             <div class="gallery-item">
@@ -215,12 +214,12 @@
             </div>
 
             <div class="gallery-item">
-                <img src="images jdhdgsgsh.jpg" alt="ذكرى">
+                <img src="images (3).jpg" alt="ذكرى">
                 <p>وجودك أجمل صدفة في حياتي، وقلبي اختارك ولن يختار غيرك.❤❤</p>
             </div>
 
             <div class="gallery-item">
-                <img src="images hsdkd.jpg" alt="ذكرى">
+                <img src="images (1).jpg" alt="ذكرى">
                 <p>أنت النبض الذي لا يتوقف، ومعك فقط أشعر أنني على قيد الحياة.</p>
             </div>
 
@@ -248,7 +247,6 @@
             }
         }
 
-        // العد التصاعدي من 26 أغسطس 2026
         const startDate = new Date("2026-08-26T00:00:00").getTime();
 
         function updateCountdown() {
