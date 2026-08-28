@@ -104,21 +104,22 @@
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
         }
         .countdown-title {
-            font-size: 16px;
+            font-size: 17px;
             color: #ff6b81;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             font-weight: bold;
         }
         .countdown-numbers {
             font-size: 19px;
             font-weight: bold;
             color: #ffffff;
-            direction: ltr;
-            unicode-bidi: isolate;
+            direction: rtl;
+            unicode-bidi: embed;
         }
         .countdown-numbers span {
             color: #ff4757;
             padding: 0 3px;
+            display: inline-block;
         }
         .audio-box {
             background: rgba(255, 255, 255, 0.04);
@@ -183,7 +184,7 @@
         
         <!-- العد التصاعدي الفخم -->
         <div class="countdown">
-            <div class="countdown-title">⏳ ممرّ على البداية الجديدة (26/8/2026)</div>
+            <div class="countdown-title">⏳ بداية جديدة لحياتنا ❤️</div>
             <div class="countdown-numbers" id="countdownTimer">جاري التحميل...</div>
         </div>
 
@@ -264,7 +265,7 @@
             const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
             document.getElementById("countdownTimer").innerHTML = 
-                `<span>${days}</span> يوم • <span>${hours}</span> ساعة • <span>${minutes}</span> دقيقة • <span>${seconds}</span> ثانية ❤️`;
+                `<span>${days}</span> يوم • <span>${hours}</span> ساعة • <span>${minutes}</span> دقيقة • <span>${seconds}</span> ثانية`;
         }
 
         setInterval(updateCountdown, 1000);
